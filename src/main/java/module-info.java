@@ -10,8 +10,8 @@ module com.greennexus {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires annotations;
 
     opens com.greennexus to javafx.fxml;
     exports com.greennexus;
-    opens com.greennexus.app to javafx.fxml;
 }
