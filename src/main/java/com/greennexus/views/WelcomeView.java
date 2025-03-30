@@ -5,8 +5,11 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.*;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
@@ -20,6 +23,17 @@ public class WelcomeView {
     }
 
    private void build(){
+       Image image = new Image("images/greenNexus.png");
+       ImageView imageView = new ImageView(image);
+       imageView.setFitHeight(250);
+       imageView.setFitWidth(250);
+
+       Rectangle clip = new Rectangle(250, 250);
+       clip.setArcWidth(50);
+       clip.setArcHeight(50);
+
+       imageView.setClip(clip);
+
        final Text title = new Text("GreenNexus");
        title.setFont(Font.font(40));
        title.setFill(Color.GREEN);
@@ -31,7 +45,8 @@ public class WelcomeView {
 
        Button continueBtn = getContinueBtn();
 
-       final VBox vBox = new VBox(10, title, subtitle, continueBtn);
+
+       final VBox vBox = new VBox(10, imageView, title, subtitle, continueBtn);
        vBox.setAlignment(Pos.CENTER);
        vBox.setSpacing(24);
 
@@ -47,6 +62,8 @@ public class WelcomeView {
        final Scene scene = new Scene(root);
        stage.setScene(scene);
        stage.setTitle("Welcome to GreenNexus");
+       stage.setMinWidth(700);
+       stage.setMinHeight(600);
        stage.setMaximized(true);
     }
 
@@ -54,24 +71,32 @@ public class WelcomeView {
     private static Button getContinueBtn() {
         Button continueBtn = new Button("Continue");
         continueBtn.setTextFill(Color.WHITE);
-        continueBtn.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
-        continueBtn.setPadding(new Insets(8, 24, 8, 24));
+        continueBtn.setPrefWidth(250);
+        updateBtnBgColor(continueBtn, Color.GREEN);
+        continueBtn.setPadding(new Insets(16, 48, 16, 48));
         continueBtn.setOnMouseMoved(e -> {
-            continueBtn.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));
+            updateBtnBgColor(continueBtn, Color.GRAY);
         });
         continueBtn.setOnMousePressed(e -> {
-            continueBtn.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, null, null)));
+            updateBtnBgColor(continueBtn, Color.LIGHTGRAY);
         });
         continueBtn.setOnMouseReleased(e -> {
-            continueBtn.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
+            updateBtnBgColor(continueBtn, Color.GREEN);
         });
         continueBtn.setOnMouseExited(e -> {
-            continueBtn.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
+            updateBtnBgColor(continueBtn, Color.GREEN);
         });
         continueBtn.setOnAction(e -> {
             System.out.println("Button Clicked!");
         });
+
         return continueBtn;
+    }
+
+    private static void updateBtnBgColor(Button continueBtn, Color color){
+        continueBtn.setBackground(new Background(new BackgroundFill(
+                color, new CornerRadii(36), Insets.EMPTY
+        )));
     }
 
     public void show(){
