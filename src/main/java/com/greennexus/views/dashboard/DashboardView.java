@@ -1,0 +1,59 @@
+package com.greennexus.views.dashboard;
+
+import com.greennexus.styles.DefaultFont;
+import com.greennexus.views.dashboard.components.DashboardHeroSection;
+import com.greennexus.views.dashboard.components.DashboardOverviewSection;
+import com.greennexus.views.dashboard.components.DashboardTopBar;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class DashboardView {
+    private final Stage stage;
+
+    public DashboardView(Stage stage) {
+        this.stage = stage;
+    }
+
+    public void show() {
+        BorderPane root = new BorderPane();
+        root.setTop(DashboardTopBar.build());
+        root.setCenter(buildCenterContent());
+
+        final Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Dashboard");
+        DefaultFont.initDefaultFont(root, 14);
+
+        Image resizedImage = new Image("images/logo_no_bg_cropped.png", 64, 64, true, true);
+
+        stage.getIcons().add(resizedImage);
+        stage.show();
+        stage.setMaximized(true);
+    }
+
+
+
+
+
+    private VBox buildCenterContent() {
+        VBox centerLayout = new VBox(20);
+        centerLayout.setPadding(new Insets(20));
+        centerLayout.getChildren().addAll(DashboardHeroSection.build(), DashboardOverviewSection.build());
+        return centerLayout;
+    }
+
+
+}

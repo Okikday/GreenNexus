@@ -1,6 +1,7 @@
 package com.greennexus.views;
 
 import com.greennexus.styles.DefaultFont;
+import com.greennexus.views.dashboard.DashboardView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -22,7 +23,7 @@ public class WelcomeView {
         stage = _stage;
     }
 
-   private void build(){
+   private VBox buildView(){
        Image image = new Image("images/greenNexus.png");
        ImageView imageView = new ImageView(image);
        imageView.setFitHeight(250);
@@ -50,25 +51,11 @@ public class WelcomeView {
        vBox.setAlignment(Pos.CENTER);
        vBox.setSpacing(24);
 
-       StackPane root = new StackPane(vBox);
-
-       Paint paint = new Color(
-               0.1, 0.1, 0.1, 1
-       );
-
-       root.setBackground(new Background(new BackgroundFill(paint, null, null)));
-       DefaultFont.initDefaultFont(root, 14);
-
-       final Scene scene = new Scene(root);
-       stage.setScene(scene);
-       stage.setTitle("Welcome to GreenNexus");
-       stage.setMinWidth(700);
-       stage.setMinHeight(600);
-       stage.setMaximized(true);
+       return vBox;
     }
 
 
-    private static Button getContinueBtn() {
+    private Button getContinueBtn() {
         Button continueBtn = new Button("Continue");
         continueBtn.setTextFill(Color.WHITE);
         continueBtn.setPrefWidth(250);
@@ -87,8 +74,11 @@ public class WelcomeView {
             updateBtnBgColor(continueBtn, Color.GREEN);
         });
         continueBtn.setOnAction(e -> {
-            System.out.println("Button Clicked!");
+            final DashboardView dashboardView = new DashboardView(stage);
+            dashboardView.show();
         });
+
+
 
         return continueBtn;
     }
@@ -100,8 +90,17 @@ public class WelcomeView {
     }
 
     public void show(){
-        build();
+        StackPane root = new StackPane(buildView());
+        Paint paint = new Color( 0.1, 0.1, 0.1, 1);
+
+        root.setBackground(new Background(new BackgroundFill(paint, null, null)));
+        DefaultFont.initDefaultFont(root, 14);
+
+        final Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Welcome to GreenNexus");
         stage.show();
+        stage.setMaximized(true);
     }
 
 }

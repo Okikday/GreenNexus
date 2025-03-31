@@ -11,6 +11,8 @@ module com.greennexus {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires annotations;
+    requires java.desktop;
+    requires org.kordamp.ikonli.core;
 
     opens com.greennexus to javafx.fxml;
     exports com.greennexus;
