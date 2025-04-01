@@ -1,14 +1,13 @@
 package com.greennexus.views.dashboard;
 
 import com.greennexus.styles.DefaultFont;
-import com.greennexus.views.dashboard.components.DashboardHeroSection;
-import com.greennexus.views.dashboard.components.DashboardOverviewSection;
-import com.greennexus.views.dashboard.components.DashboardTopBar;
+import com.greennexus.views.dashboard.components.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -48,12 +47,18 @@ public class DashboardView {
 
 
 
-    private VBox buildCenterContent() {
+    private ScrollPane buildCenterContent() {
         VBox centerLayout = new VBox(20);
         centerLayout.setPadding(new Insets(20));
-        centerLayout.getChildren().addAll(DashboardHeroSection.build(), DashboardOverviewSection.build());
-        return centerLayout;
+        centerLayout.getChildren().addAll(DashboardHeroSection.build(), DashboardOverviewSection.build(), DashboardPickupManagement.build(), DashboardRecentActivity.build());
+
+        ScrollPane scrollPane = new ScrollPane(centerLayout);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setPadding(new Insets(10));
+
+        return scrollPane;
     }
+
 
 
 }

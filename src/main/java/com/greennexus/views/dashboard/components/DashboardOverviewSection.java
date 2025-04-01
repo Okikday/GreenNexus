@@ -54,13 +54,22 @@ public class DashboardOverviewSection {
         final Label detailLabel = new Label("78kg of 100kg target");
         detailLabel.setFont(Font.font(Font.getDefault().getName(), FontWeight.NORMAL, 14));
         detailLabel.setTextFill(Color.web("#222"));
+
         final Rectangle spacing = new Rectangle(0, 12);
+
         ProgressBar progressBar = new ProgressBar(0.78);
-        progressBar.setPrefWidth(300);
-        progressBar.setBackground(new Background(new BackgroundFill(Color.web("2DAA5B"), new CornerRadii(48), null)));
+        progressBar.setStyle(
+                "-fx-accent: #2DAA5B;" +  // Sets the fill color of the progress bar
+                        "-fx-control-inner-background: transparent;" +  // Keeps the track transparent
+                        "-fx-background-color: transparent;" +  // Removes background color
+                        "-fx-background-insets: 0;" +
+                        "-fx-border-width: 0;" +  // Removes any border
+                        "-fx-border-radius: 8px;"  // Ensures rounded corners
+        );
 
         return new VBox(12, progressBar, detailLabel);
     }
+
 
     private static VBox buildCard(String title, String count, Node detailLabel) {
         // Title Label
@@ -76,13 +85,13 @@ public class DashboardOverviewSection {
         VBox box = new VBox(5, titleLabel, countLabel, detailLabel);
         box.setAlignment(Pos.TOP_LEFT);
         box.setPadding(new Insets(15));
-        box.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(8), Insets.EMPTY)));
+        box.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(12), Insets.EMPTY)));
 
         // Border with Rounded Corners
         box.setBorder(new Border(new BorderStroke(
                 Color.web("#e2e8f0"),
                 BorderStrokeStyle.SOLID,
-                new CornerRadii(16),
+                new CornerRadii(12),
                 new BorderWidths(1)
         )));
         // Soft Shadow for Floating Effect
