@@ -50,11 +50,20 @@ public class DashboardView {
     private ScrollPane buildCenterContent() {
         VBox centerLayout = new VBox(20);
         centerLayout.setPadding(new Insets(20));
-        centerLayout.getChildren().addAll(DashboardHeroSection.build(), DashboardOverviewSection.build(), DashboardPickupManagement.build(), DashboardRecentActivity.build());
+        centerLayout.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+        centerLayout.getChildren().addAll(
+                DashboardHeroSection.build(),
+                DashboardOverviewSection.build(),
+                DashboardPickupManagement.build(),
+                DashboardRecentActivity.build(),
+                DashboardRecyclingCompanies.build(),
+                DashboardImpactSection.build()
+        );
 
         ScrollPane scrollPane = new ScrollPane(centerLayout);
         scrollPane.setFitToWidth(true);
         scrollPane.setPadding(new Insets(10));
+        scrollPane.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
 
         return scrollPane;
     }

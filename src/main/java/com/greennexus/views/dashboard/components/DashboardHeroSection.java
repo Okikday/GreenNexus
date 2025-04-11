@@ -13,18 +13,18 @@ import javafx.scene.text.FontWeight;
 public class DashboardHeroSection {
     public static VBox build() {
         Label welcomeLabel = new Label("Welcome to GreenNexus");
-        welcomeLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        welcomeLabel.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 24));
         welcomeLabel.setTextFill(Color.web("#1C1C1C"));
 
 
         Label subLabel1 = new Label("Your sustainable waste management platform. Track pickups, schedule collections, and");
-        subLabel1.setFont(Font.font("Arial", 16));
+        subLabel1.setFont(Font.font(Font.getDefault().getName(), 16));
         subLabel1.setTextFill(Color.web("#7f8e9f"));
         subLabel1.setWrapText(true);
 
 
         Label subLabel2 = new Label("contribute to a cleaner Nigeria.");
-        subLabel2.setFont(Font.font("Arial", 16));
+        subLabel2.setFont(Font.font(Font.getDefault().getName(), 16));
         subLabel2.setTextFill(Color.web("#7f8e9f"));
         subLabel2.setWrapText(true);
 

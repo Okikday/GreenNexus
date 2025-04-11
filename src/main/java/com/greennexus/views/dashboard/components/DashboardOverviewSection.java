@@ -17,7 +17,7 @@ public class DashboardOverviewSection {
     public static VBox build() {
         // Title Label
         Label overviewTitle = new Label("📈 Waste Management Overview");
-        overviewTitle.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+        overviewTitle.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 18));
         overviewTitle.setTextFill(Color.web("#222"));
 
 
@@ -47,7 +47,7 @@ public class DashboardOverviewSection {
         detailLabel.setFont(Font.font(Font.getDefault().getName(), FontWeight.NORMAL, 14));
         detailLabel.setTextFill(Color.web("#222"));
         final Rectangle spacing = new Rectangle(0, 12);
-        return new VBox(0, spacing, detailLabel);
+        return new VBox(12, spacing, detailLabel);
     }
 
     private static Node getDetailWithProgress() {

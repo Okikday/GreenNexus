@@ -1,5 +1,6 @@
 package com.greennexus.views.dashboard.components;
 
+import com.greennexus.styles.DefaultFont;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -14,7 +15,7 @@ public class DashboardPickupManagement {
 
     public static VBox build() {
         Label titleLabel = new Label("\uD83D\uDCC5 Pickup Management");
-        titleLabel.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+        titleLabel.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 18));
         titleLabel.setTextFill(Color.web("#222"));
 
         HBox cards = new HBox(15,
@@ -29,6 +30,7 @@ public class DashboardPickupManagement {
 
         VBox layout = new VBox(10, titleLabel, cards);
         layout.setPadding(new Insets(20, 0, 0, 0));
+        DefaultFont.initDefaultFont(layout, 14);
         return layout;
     }
 
@@ -37,27 +39,27 @@ public class DashboardPickupManagement {
         HBox titleBox = new HBox(5);
         Circle dot = new Circle(5, Color.web(dotColor));
         Label typeLabel = new Label(type);
-        typeLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        typeLabel.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 14));
         titleBox.getChildren().addAll(dot, typeLabel);
 
         Label dateLabel = new Label(date);
-        dateLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 12));
+        dateLabel.setFont(Font.font(Font.getDefault().getName(), FontWeight.NORMAL, 12));
         dateLabel.setTextFill(Color.web("#7f8e9f"));
 
         Label locationLabel = new Label("\uD83D\uDCCD " + location);
-        locationLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 13));
+        locationLabel.setFont(Font.font(Font.getDefault().getName(), FontWeight.NORMAL, 13));
         locationLabel.setTextFill(Color.web("#222"));
 
         Label statusLabel = new Label(status);
-        statusLabel.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+        statusLabel.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 12));
         statusLabel.setTextFill(Color.web("#222"));
         statusLabel.setStyle("-fx-background-color: " + statusColor + "; -fx-padding: 4 8; -fx-background-radius: 12px;");
 
         Label viewDetails = new Label("View Details");
-        viewDetails.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+        viewDetails.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 12));
         viewDetails.setTextFill(Color.web("#7f8e9f"));
 
-        VBox box = new VBox(5, titleBox, dateLabel, locationLabel, viewDetails);
+        VBox box = new VBox(12, titleBox, dateLabel, locationLabel, viewDetails);
         box.setPadding(new Insets(15));
         box.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(12), Insets.EMPTY)));
         box.setBorder(new Border(new BorderStroke(Color.web("#e2e8f0"), BorderStrokeStyle.SOLID, new CornerRadii(12), new BorderWidths(1))));
