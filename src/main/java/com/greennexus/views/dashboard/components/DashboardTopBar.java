@@ -31,7 +31,7 @@ public class DashboardTopBar {
 
     // Logo Box
     private static HBox buiidLogoBox(){
-        Image image = new Image("images/logo_no_bg.png", 100, 100, true, true);
+        Image image = new Image(DashboardTopBar.class.getResource("/images/logo.png").toExternalForm(), 100, 100, true, true);
         ImageView logoView = new ImageView(image);
         logoView.setFitWidth(64);
         logoView.setFitHeight(64);

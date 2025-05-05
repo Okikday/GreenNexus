@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.greennexus'
-    mainClass = 'com.greennexus.HelloApplication'
+    mainClass = 'com.greennexus.MainApp'
 }
 
 javafx {

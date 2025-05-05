@@ -24,7 +24,7 @@ public class WelcomeView {
     }
 
    private VBox buildView(){
-       Image image = new Image("images/greenNexus.png");
+       Image image = new Image(getClass().getResourceAsStream("images/greenNexus.png"));
        ImageView imageView = new ImageView(image);
        imageView.setFitHeight(250);
        imageView.setFitWidth(250);

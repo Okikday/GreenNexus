@@ -36,7 +36,7 @@ public class DashboardView {
         stage.setTitle("Dashboard");
         DefaultFont.initDefaultFont(root, 14);
 
-        Image resizedImage = new Image("images/logo_no_bg_cropped.png", 64, 64, true, true);
+        Image resizedImage = new Image(getClass().getResourceAsStream("/images/logo_no_bg_cropped.png"), 64, 64, true, true);
 
         stage.getIcons().add(resizedImage);
         stage.show();
