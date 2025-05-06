@@ -28,7 +28,7 @@ public class DashboardRecentActivity {
         );
 
         root.getChildren().addAll(title, activities);
-        DefaultFont.initDefaultFont(root, 14);
+        // DefaultFont.initDefaultFont(root, 14);
         return root;
     }
 

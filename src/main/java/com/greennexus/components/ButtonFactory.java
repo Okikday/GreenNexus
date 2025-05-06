@@ -1,5 +1,7 @@
 package com.greennexus.components;
 
+import com.greennexus.styles.FontLoader;
+
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -24,7 +26,8 @@ public class ButtonFactory {
         Button button = new Button(text != null ? text : "Button");
 
         // Set font to bold
-        button.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 14));
+        button.setFont(FontLoader.getFont(FontLoader.Weight.BOLD, 14));
+
 
         // Set text fill color
         button.setTextFill(textColor != null ? textColor : Color.BLACK);

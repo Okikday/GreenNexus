@@ -1,5 +1,7 @@
 package com.greennexus.views.auth;
 
+import com.greennexus.styles.FontLoader;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -20,10 +22,10 @@ public class Login extends Application {
         logo.setPreserveRatio(true);
 
         Label title = new Label("GreenNexus");
-        title.setFont(Font.font("System", FontWeight.BOLD, 22));
+        title.setFont(FontLoader.getFont(FontLoader.Weight.BOLD, 22));
 
         Label subtitle = new Label("Login to your account to manage waste collection");
-        subtitle.setFont(Font.font("System", FontWeight.NORMAL, 14));
+        subtitle.setFont(FontLoader.getFont(FontLoader.Weight.REGULAR, 14));
 
         VBox headerBox = new VBox(8, logo, title, subtitle);
         headerBox.setAlignment(Pos.CENTER);

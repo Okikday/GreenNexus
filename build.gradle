@@ -13,6 +13,15 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources']
+            includes = ['**/*.css', '**/*.png', '**/*.ttf']
+        }
+    }
+}
+
 ext {
     junitVersion = '5.10.2'
 }
