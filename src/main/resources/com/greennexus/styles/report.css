@@ -1,0 +1,104 @@
+/* Root styles that apply globally */
+.root {
+  font-family: 'Inter', sans-serif;
+  -fx-font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  -fx-font-size: 14px;
+
+  -fx-text-fill: #333333;
+  background-color: #f8f9fa;
+  -fx-background-color: #f8f9fa;
+}
+
+/* Remove focus border from all controls */
+*:focus {
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+}
+
+/* ComboBox Base Styling */
+.combo-box {
+  -fx-background-color: #ffffff;
+  /* -fx-border-color: #d1d5db; */
+  -fx-focus-color: transparent !important;
+  -fx-faint-focus-color: transparent !important;
+  -fx-effect: null !important;
+
+  -fx-border-color: rgb(226, 232, 240) !important;
+  -fx-border-radius: 6px;
+  -fx-border-width: 1px;
+  -fx-padding: 6px 12px;
+  -fx-font-family: "Inter", sans-serif;
+  -fx-font-size: 14px;
+  -fx-text-fill: #374151;
+  -fx-pref-height: 44px;
+}
+
+/* ComboBox Hover State */
+.combo-box:hover {
+  -fx-border-color: #9ca3af;
+}
+
+/* ComboBox Focused State */ 
+.combo-box:focused {
+  -fx-border-color: #3b82f6;
+  -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.2), 0, 0, 0, 2px);
+}
+
+.combo-box .arrow {
+  /* -fx-pref-width: 32px; */
+  -fx-pref-height: 24px;
+  -fx-pref-width: 24px; 
+  -fx-padding: 0;
+  -fx-background-color: transparent;
+  -fx-background-image: url("../images/chevron-down.png");
+  -fx-background-size: auto 24px;
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: center;
+  -fx-shape: ""; /* Remove default arrow shape */
+  -fx-opacity: 0.5;
+  /* -fx-padding: 0 0 4px 0; */
+}
+
+/* Dropdown Arrow Button */
+.combo-box .arrow-button {
+  /* -fx-padding: 0 8px 0 0; */
+  -fx-pref-width: 24px;
+  -fx-pref-height: 24px;
+}
+
+/* Dropdown List Styling */
+.combo-box-popup .list-view {
+  -fx-background-color: white;
+  -fx-border-color: #e5e7eb;
+  -fx-border-radius: 6px;
+  -fx-background-radius: 6px;
+  -fx-pref-height: 200px;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 2px);
+}
+
+/* List Cells */
+.combo-box-popup .list-cell {
+  -fx-padding: 8px 12px;
+  -fx-background-color: white;
+  -fx-text-fill: #374151;
+}
+
+/* List Cell Hover */
+.combo-box-popup .list-cell:hover {
+  -fx-background-color: #f3f4f6;
+}
+
+/* Selected Cell */
+.combo-box-popup .list-cell:selected, 
+.combo-box-popup .list-cell:filled:selected {
+  -fx-background-color: #eff6ff;
+  -fx-text-fill: #1d4ed8;
+}
+
+/* Disabled State */
+.combo-box:disabled {
+  -fx-opacity: 0.7;
+  -fx-background-color: #f3f4f6;
+  -fx-border-color: #e5e7eb;
+}

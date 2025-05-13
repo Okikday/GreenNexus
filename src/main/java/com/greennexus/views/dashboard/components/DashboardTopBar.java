@@ -1,6 +1,8 @@
 package com.greennexus.views.dashboard.components;
 
 import com.greennexus.components.ButtonFactory;
+import com.greennexus.styles.FontLoader;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -20,7 +22,7 @@ public class DashboardTopBar {
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
         final HBox topBar = new HBox(15, buiidLogoBox(), spacer, buildReportBtn(), buildScheduleBtn());
-        topBar.setPadding(new Insets(10, 20, 10, 0));
+        topBar.setPadding(new Insets(16));
         topBar.setAlignment(Pos.CENTER_LEFT);
         topBar.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         topBar.setPrefHeight(50);
@@ -31,20 +33,29 @@ public class DashboardTopBar {
 
     // Logo Box
     private static HBox buiidLogoBox(){
-        Image image = new Image("images/logo_no_bg.png", 100, 100, true, true);
+        Image image = new Image(DashboardTopBar.class.getResource("/images/logo_white.png").toExternalForm(), 100, 100, true, true);
         ImageView logoView = new ImageView(image);
-        logoView.setFitWidth(64);
-        logoView.setFitHeight(64);
+
+        Rectangle box = new Rectangle(64, 64);
+        box.setFill(Color.rgb(22, 162, 73));
+        box.setArcWidth(20); // Border radius X
+        box.setArcHeight(20);
+
+        logoView.setFitWidth(32);
+        logoView.setFitHeight(32);
         logoView.setSmooth(true);
         logoView.setCache(true);
 
-        Rectangle clip = new Rectangle(64, 64);
+        StackPane logo = new StackPane(box, logoView);
+        logo.setAlignment(Pos.CENTER);
+
+        Rectangle clip = new Rectangle(32, 32);
         logoView.setClip(clip);
 
         Text logoLabel = new Text("GreenNexus");
-        logoLabel.setFont(Font.font( 20));
+        logoLabel.setFont(FontLoader.getFont(FontLoader.Weight.BOLD, 20));
 
-        HBox logoBox = new HBox(0, logoView, logoLabel);
+        HBox logoBox = new HBox(16, logo, logoLabel);
         logoBox.setAlignment(Pos.CENTER_LEFT);
         return logoBox;
     }

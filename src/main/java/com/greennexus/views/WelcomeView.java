@@ -1,6 +1,7 @@
 package com.greennexus.views;
 
 import com.greennexus.styles.DefaultFont;
+import com.greennexus.styles.FontLoader;
 import com.greennexus.views.dashboard.DashboardView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -24,7 +25,7 @@ public class WelcomeView {
     }
 
    private VBox buildView(){
-       Image image = new Image("images/greenNexus.png");
+       Image image = new Image(getClass().getResourceAsStream("images/greenNexus.png"));
        ImageView imageView = new ImageView(image);
        imageView.setFitHeight(250);
        imageView.setFitWidth(250);
@@ -36,7 +37,8 @@ public class WelcomeView {
        imageView.setClip(clip);
 
        final Text title = new Text("GreenNexus");
-       title.setFont(Font.font(40));
+       title.setFont(FontLoader.getFont(FontLoader.Weight.REGULAR, 40));
+
        title.setFill(Color.GREEN);
 
        final Text subtitle = new Text("Revolutionizing Waste Management for a Greener Future");
@@ -94,7 +96,7 @@ public class WelcomeView {
         Paint paint = new Color( 0.1, 0.1, 0.1, 1);
 
         root.setBackground(new Background(new BackgroundFill(paint, null, null)));
-        DefaultFont.initDefaultFont(root, 14);
+        // DefaultFont.initDefaultFont(root, 14);
 
         final Scene scene = new Scene(root);
         stage.setScene(scene);

@@ -30,7 +30,7 @@ public class DashboardPickupManagement {
 
         VBox layout = new VBox(10, titleLabel, cards);
         layout.setPadding(new Insets(20, 0, 0, 0));
-        DefaultFont.initDefaultFont(layout, 14);
+        // DefaultFont.initDefaultFont(layout, 14);
         return layout;
     }
 

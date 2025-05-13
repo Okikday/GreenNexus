@@ -13,6 +13,15 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources']
+            includes = ['**/*.css', '**/*.png', '**/*.ttf']
+        }
+    }
+}
+
 ext {
     junitVersion = '5.10.2'
 }
@@ -26,7 +35,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.greennexus'
-    mainClass = 'com.greennexus.HelloApplication'
+    mainClass = 'com.greennexus.MainApp'
 }
 
 javafx {

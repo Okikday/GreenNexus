@@ -1,6 +1,8 @@
 package com.greennexus.views.dashboard.components;
 
 import com.greennexus.components.ButtonFactory;
+import com.greennexus.styles.FontLoader;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -8,23 +10,26 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 
 public class DashboardHeroSection {
     public static VBox build() {
         Label welcomeLabel = new Label("Welcome to GreenNexus");
-        welcomeLabel.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 24));
+        welcomeLabel.setFont(FontLoader.getFont(FontLoader.Weight.BOLD, 24));
+
         welcomeLabel.setTextFill(Color.web("#1C1C1C"));
 
 
         Label subLabel1 = new Label("Your sustainable waste management platform. Track pickups, schedule collections, and");
-        subLabel1.setFont(Font.font(Font.getDefault().getName(), 16));
+        subLabel1.setFont(FontLoader.getFont(FontLoader.Weight.REGULAR, 16));
+
         subLabel1.setTextFill(Color.web("#7f8e9f"));
         subLabel1.setWrapText(true);
 
 
         Label subLabel2 = new Label("contribute to a cleaner Nigeria.");
         subLabel2.setFont(Font.font(Font.getDefault().getName(), 16));
+        subLabel2.setFont(FontLoader.getFont(FontLoader.Weight.REGULAR, 16));
+
         subLabel2.setTextFill(Color.web("#7f8e9f"));
         subLabel2.setWrapText(true);
 

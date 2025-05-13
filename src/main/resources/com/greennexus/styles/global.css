@@ -1,0 +1,17 @@
+/* Root styles that apply globally */
+.root {
+  font-family: 'Inter', sans-serif;
+  -fx-font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  -fx-font-size: 14px;
+
+  -fx-text-fill: #333333;
+  background-color: #f8f9fa;
+  -fx-background-color: #f8f9fa;
+}
+
+/* Remove focus border from all controls */
+*:focus {
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+}
