@@ -18,6 +18,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 public class WelcomeView {
     private final Stage stage;
     public WelcomeView(Stage _stage){
@@ -25,7 +27,8 @@ public class WelcomeView {
     }
 
    private VBox buildView(){
-       Image image = new Image(getClass().getResourceAsStream("images/greenNexus.png"));
+       Image image = new Image(Objects.requireNonNull(getClass().getResource("/images/greenNexus.png")).toExternalForm());
+
        ImageView imageView = new ImageView(image);
        imageView.setFitHeight(250);
        imageView.setFitWidth(250);

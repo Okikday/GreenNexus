@@ -13,7 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class DashboardRecyclingCompanies {
-    public static VBox build() {
+    public static VBox build(boolean isHBox) {
         VBox root = new VBox(20);
         root.setPadding(new Insets(12));
         root.setAlignment(Pos.TOP_LEFT);
@@ -21,31 +21,6 @@ public class DashboardRecyclingCompanies {
         Label title = new Label("Recycling Companies");
         title.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 20));
 
-        HBox companiesContainer = new HBox(20);
-        companiesContainer.getChildren().addAll(
-                buildCompanyCard(
-                        "EcoNigeria Recyclers",
-                        "Plastic, Paper, Glass",
-                        "Lekki Phase 1, Lagos",
-                        "contact@econigeria.com"
-                ),
-                buildCompanyCard(
-                        "Green Lagos Solutions",
-                        "Metal, Electronic",
-                        "Ikeja, Lagos",
-                        "info@greenlagos.com"
-                ),
-                buildCompanyCard(
-                        "Abuja Waste Management",
-                        "Organic, Hazardous",
-                        "Central Business District, Abuja",
-                        "support@abujawaste.com"
-                )
-        );
-
-        for (Node card : companiesContainer.getChildren()) {
-            HBox.setHgrow(card, Priority.ALWAYS);
-        }
 
         Button viewAllBtn = ButtonFactory.create("View All Companies →", () -> {});
         viewAllBtn.setFont(Font.font(Font.getDefault().getName(), FontWeight.NORMAL, 13));
@@ -57,9 +32,64 @@ public class DashboardRecyclingCompanies {
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
         HBox header = new HBox(5, title, spacer, viewAllBtn);
+        if(isHBox){
+            HBox companiesContainer = new HBox(20);
+            companiesContainer.getChildren().addAll(
+                    buildCompanyCard(
+                            "EcoNigeria Recyclers",
+                            "Plastic, Paper, Glass",
+                            "Lekki Phase 1, Lagos",
+                            "contact@econigeria.com"
+                    ),
+                    buildCompanyCard(
+                            "Green Lagos Solutions",
+                            "Metal, Electronic",
+                            "Ikeja, Lagos",
+                            "info@greenlagos.com"
+                    ),
+                    buildCompanyCard(
+                            "Abuja Waste Management",
+                            "Organic, Hazardous",
+                            "Central Business District, Abuja",
+                            "support@abujawaste.com"
+                    )
+            );
 
-        root.getChildren().addAll(header, companiesContainer);
+            for (Node card : companiesContainer.getChildren()) {
+                HBox.setHgrow(card, Priority.ALWAYS);
+            }
+            root.getChildren().addAll(header, companiesContainer);
+        }else{
+            VBox companiesContainer = new VBox(20);
+            companiesContainer.getChildren().addAll(
+                    buildCompanyCard(
+                            "EcoNigeria Recyclers",
+                            "Plastic, Paper, Glass",
+                            "Lekki Phase 1, Lagos",
+                            "contact@econigeria.com"
+                    ),
+                    buildCompanyCard(
+                            "Green Lagos Solutions",
+                            "Metal, Electronic",
+                            "Ikeja, Lagos",
+                            "info@greenlagos.com"
+                    ),
+                    buildCompanyCard(
+                            "Abuja Waste Management",
+                            "Organic, Hazardous",
+                            "Central Business District, Abuja",
+                            "support@abujawaste.com"
+                    )
+            );
+
+            for (Node card : companiesContainer.getChildren()) {
+                VBox.setVgrow(card, Priority.ALWAYS);
+            }
+            root.getChildren().addAll(header, companiesContainer);
+        }
         return root;
+
+
     }
 
     private static VBox buildCompanyCard(String name, String materials, String location, String contact) {

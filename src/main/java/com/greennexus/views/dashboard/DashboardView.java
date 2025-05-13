@@ -56,7 +56,7 @@ public class DashboardView {
                 DashboardOverviewSection.build(),
                 DashboardPickupManagement.build(),
                 DashboardRecentActivity.build(),
-                DashboardRecyclingCompanies.build(),
+                DashboardRecyclingCompanies.build(true),
                 DashboardImpactSection.build()
         );
 

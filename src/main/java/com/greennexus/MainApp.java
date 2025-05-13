@@ -4,6 +4,7 @@ import com.greennexus.styles.DefaultFont;
 import com.greennexus.styles.FontLoader;
 import com.greennexus.views.WelcomeView;
 import com.greennexus.views.dashboard.DashboardView;
+import com.greennexus.views.recyclingcompanies.RecyclingCoordinationView;
 import com.greennexus.views.report.ReportView;
 
 import javafx.application.Application;
@@ -24,15 +25,18 @@ public class MainApp extends Application {
         FontLoader.initialize();
         
         // Create and show your view
-        // DashboardView dashboardView = new DashboardView(stage);
-        // dashboardView.show();
+//         DashboardView dashboardView = new DashboardView(stage);
+//         dashboardView.show();
         
         // Alternative if you want to use WelcomeView first:
-        // WelcomeView welcomeView = new WelcomeView(stage);
-        // welcomeView.show();
+//         WelcomeView welcomeView = new WelcomeView(stage);
+//         welcomeView.show();
 
-        ReportView reportView = new ReportView(stage);
-        reportView.show();
+//        ReportView reportView = new ReportView(stage);
+//        reportView.show();
+
+        RecyclingCoordinationView.show(stage);
+
     }
 
     public static void main(String[] args) {
