@@ -39,7 +39,7 @@ public class ReportView {
 
         final Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Dashboard");
+        stage.setTitle("Report Emergency");
         // DefaultFont.initDefaultFont(root, 14);
 
         Image resizedImage = new Image(getClass().getResourceAsStream("/images/logo_no_bg_cropped.png"), 64, 64, true, true);

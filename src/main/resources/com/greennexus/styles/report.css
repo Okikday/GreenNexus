@@ -27,7 +27,7 @@
   -fx-border-color: rgb(226, 232, 240) !important;
   -fx-border-radius: 6px;
   -fx-border-width: 1px;
-  -fx-padding: 6px 12px;
+  -fx-padding: 6px 2px;
   -fx-font-family: "Inter", sans-serif;
   -fx-font-size: 14px;
   -fx-text-fill: #374151;
@@ -79,7 +79,7 @@
 
 /* List Cells */
 .combo-box-popup .list-cell {
-  -fx-padding: 8px 12px;
+  -fx-padding: 8px 20px;
   -fx-background-color: white;
   -fx-text-fill: #374151;
 }
@@ -92,8 +92,8 @@
 /* Selected Cell */
 .combo-box-popup .list-cell:selected, 
 .combo-box-popup .list-cell:filled:selected {
-  -fx-background-color: #eff6ff;
-  -fx-text-fill: #1d4ed8;
+  -fx-background-color: rgb(226, 232, 240);
+  /* -fx-text-fill: #1d4ed8; */
 }
 
 /* Disabled State */
@@ -101,4 +101,25 @@
   -fx-opacity: 0.7;
   -fx-background-color: #f3f4f6;
   -fx-border-color: #e5e7eb;
+}
+
+.text-field, .password-field, .text-area {
+  -fx-pref-height: 35px;
+  -fx-background-color: #ffffff;
+  -fx-border-color: rgb(226, 232, 240);
+  -fx-border-radius: 6px;
+  -fx-padding: 8px 12px;
+  -fx-font-size: 14px;
+  -fx-effect: null;
+  -fx-pref-height: 44px;
+}
+
+.text-field:focused, .text-area:focused {
+  -fx-border-color: #3b82f6;
+  -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.2), 0, 0, 0, 2px);
+}
+
+.error-input {
+  -fx-border-color: #ef4444 !important;
+  -fx-effect: dropshadow(gaussian, rgba(239, 68, 68, 0.2), 0, 0, 0, 2px);
 }

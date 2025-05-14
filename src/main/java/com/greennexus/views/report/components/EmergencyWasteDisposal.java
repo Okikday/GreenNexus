@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -65,20 +66,45 @@ public class EmergencyWasteDisposal {
     // Add your components to the VBox here
     // For example:
 
+
     VBox vbox1 = new VBox(12);
 
     Text label1 = new Text("Emergency Type");
     label1.setFont(FontLoader.getFont(FontLoader.Weight.MEDIUM, 16));
 
-    ComboBox<String> multiSelectList = new ComboBox<>();
-    multiSelectList.getItems().addAll("Hazardous Material Spill", "Chemical Leak", "Biohazard", "Other Emergency");
-    multiSelectList.setPromptText("Select emergency type");
+    ComboBox<String> selectEmergency = new ComboBox<>();
+    selectEmergency.getItems().addAll("Hazardous Material Spill", "Chemical Leak", "Biohazard", "Other Emergency");
+    selectEmergency.setPromptText("Select emergency type");
+    selectEmergency.setMaxWidth(Double.MAX_VALUE);   
 
-    vbox1.getChildren().addAll(label1, multiSelectList);
+    vbox1.getChildren().addAll(label1, selectEmergency);
 
 
+    VBox vbox2 = new VBox(12);
+
+    Text label2 = new Text("Location");
+    label2.setFont(FontLoader.getFont(FontLoader.Weight.MEDIUM, 16));
+
+    TextField location = new TextField();
+    location.setPromptText("Enter the location of the emergency");
+    location.setMaxWidth(Double.MAX_VALUE);   
+
+    vbox2.getChildren().addAll(label2, location);
+
+
+    VBox vbox3 = new VBox(12);
+
+    Text label3 = new Text("State");
+    label3.setFont(FontLoader.getFont(FontLoader.Weight.MEDIUM, 16));
+
+    ComboBox<String> selectState = new ComboBox<>();
+    selectState.getItems().addAll("Lagos", "Federal Capital Territory (Abuja)", "Rivers", "Kano", "Oyo", "Edo", "Delta", "Enugu", "Kaduna", "Kwara", "Ekiti", "Osun", "Abia", "Benue", "Borno", "Yobe", "Adamawa", "Taraba", "Nasarawa", "Kogi", "Zamfara", "Sokoto", "Katsina", "Gombe", "Bauchi", "Plateau", "Niger", "Ogun", "Ondo", "Other");
+    selectState.setPromptText("Select state");
+    selectState.setMaxWidth(Double.MAX_VALUE);   
+
+    vbox3.getChildren().addAll(label3, selectState);
     
-    form.getChildren().addAll(vbox1);
+    form.getChildren().addAll(vbox1, vbox2, vbox3);
     
     return form;
   }
