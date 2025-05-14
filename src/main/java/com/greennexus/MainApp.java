@@ -32,10 +32,10 @@ public class MainApp extends Application {
 //         WelcomeView welcomeView = new WelcomeView(stage);
 //         welcomeView.show();
 
-//        ReportView reportView = new ReportView(stage);
-//        reportView.show();
+       ReportView reportView = new ReportView(stage);
+       reportView.show();
 
-        RecyclingCoordinationView.show(stage);
+        // RecyclingCoordinationView.show(stage);
 
     }
 

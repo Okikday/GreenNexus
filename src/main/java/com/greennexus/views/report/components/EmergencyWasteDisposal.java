@@ -5,10 +5,15 @@ import com.greennexus.views.dashboard.components.DashboardTopBar;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -103,8 +108,53 @@ public class EmergencyWasteDisposal {
     selectState.setMaxWidth(Double.MAX_VALUE);   
 
     vbox3.getChildren().addAll(label3, selectState);
+
+    // Severity Level
+    ToggleGroup severityGroup = new ToggleGroup();
+
+    RadioButton lowBtn = new RadioButton("Low (Contained, no immediate danger)");
+    lowBtn.setToggleGroup(severityGroup);
+
+    RadioButton mediumBtn = new RadioButton("Medium (Potential risk, needs prompt attention)");
+    mediumBtn.setToggleGroup(severityGroup);
+    mediumBtn.setSelected(true);
+
+    RadioButton highBtn = new RadioButton("High (Immediate danger, requires urgent response)");
+    highBtn.setToggleGroup(severityGroup);
     
-    form.getChildren().addAll(vbox1, vbox2, vbox3);
+    VBox severityBox = new VBox(5, lowBtn, mediumBtn, highBtn);
+    Label severityLabel = new Label("Severity Level");
+    severityLabel.setFont(FontLoader.getFont(FontLoader.Weight.MEDIUM, 16));
+
+    VBox vbox4 = new VBox(12, severityLabel, severityBox);
+
+    // Description
+    Label descriptionLabel = new Label("Description of Emergency");
+    descriptionLabel.setFont(FontLoader.getFont(FontLoader.Weight.MEDIUM, 16));
+    TextArea descriptionArea = new TextArea();
+    descriptionArea.setPromptText("Describe the emergency situation in detail");
+    descriptionArea.setPrefRowCount(4);
+
+    VBox vbox5 = new VBox(15, descriptionLabel, descriptionArea);
+
+    // Contact Number
+    Label contactLabel = new Label("Contact Number");
+    contactLabel.setFont(FontLoader.getFont(FontLoader.Weight.MEDIUM, 16));
+    TextField contactField = new TextField();
+    contactField.setPromptText("Enter your contact number");
+    VBox vbox6 = new VBox(15, contactLabel, contactField);
+
+
+    // Submit Button
+    Button submitButton = new Button("Submit Emergency Alert");
+    submitButton.getStyleClass().add("submit-button");
+    
+
+    // Footer note
+    Label footerLabel = new Label("By submitting this form, you confirm this is a genuine emergency that requires immediate attention.");
+    footerLabel.setStyle("-fx-font-size: 10px; -fx-text-fill: gray;");
+
+    form.getChildren().addAll(vbox1, vbox2, vbox3, vbox4, vbox5, vbox6, submitButton, footerLabel);
     
     return form;
   }
