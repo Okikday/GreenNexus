@@ -1,5 +1,7 @@
 package com.greennexus.views.report.components;
 
+import javax.swing.GroupLayout.Alignment;
+
 import com.greennexus.styles.FontLoader;
 import com.greennexus.views.dashboard.components.DashboardTopBar;
 
@@ -31,6 +33,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 public class EmergencyWasteDisposal {
   public static VBox build() {
@@ -149,11 +152,16 @@ public class EmergencyWasteDisposal {
     // Submit Button
     Button submitButton = new Button("Submit Emergency Alert");
     submitButton.getStyleClass().add("submit-button");
+    submitButton.setPrefWidth(Double.MAX_VALUE);
+    submitButton.setTextFill(Color.WHITE);
+    submitButton.setStyle("-fx-background-color: tomato; -fx-background-radius: 6; -fx-padding-block: 20px;");
     
 
     // Footer note
     Label footerLabel = new Label("By submitting this form, you confirm this is a genuine emergency that requires immediate attention.");
     footerLabel.setStyle("-fx-font-size: 10px; -fx-text-fill: gray;");
+    footerLabel.setTextAlignment(TextAlignment.CENTER);
+    footerLabel.setPrefWidth(Double.MAX_VALUE);
 
     form.getChildren().addAll(vbox1, vbox2, vbox3, vbox4, vbox5, vbox6, submitButton, footerLabel);
     
