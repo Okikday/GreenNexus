@@ -4,6 +4,7 @@ package com.greennexus.views.report;
 import com.greennexus.components.BackToDashboard;
 import com.greennexus.styles.DefaultFont;
 import com.greennexus.views.dashboard.components.*;
+import com.greennexus.views.report.components.EmergencyResponseInformation;
 import com.greennexus.views.report.components.EmergencyWasteDisposal;
 
 import javafx.geometry.Insets;
@@ -39,7 +40,7 @@ public class ReportView {
 
         final Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Dashboard");
+        stage.setTitle("Report Emergency");
         // DefaultFont.initDefaultFont(root, 14);
 
         Image resizedImage = new Image(getClass().getResourceAsStream("/images/logo_no_bg_cropped.png"), 64, 64, true, true);
@@ -54,12 +55,13 @@ public class ReportView {
     }
 
 
-    private VBox buildCenterContent() {
+    private ScrollPane buildCenterContent() {
       VBox centerLayout = new VBox(20);
       centerLayout.setPadding(new Insets(16, 20, 16, 20));
       centerLayout.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
       centerLayout.getChildren().addAll(
-              EmergencyWasteDisposal.build()
+              EmergencyWasteDisposal.build(),
+              EmergencyResponseInformation.build()
               // DashboardHeroSection.build(),
               // DashboardOverviewSection.build(),
               // DashboardPickupManagement.build(),
@@ -72,8 +74,13 @@ public class ReportView {
       // scrollPane.setFitToWidth(true);
       // scrollPane.setPadding(new Insets(10));
       // scrollPane.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+    
+      ScrollPane scrollPane = new ScrollPane(centerLayout);
+        scrollPane.setFitToWidth(true);  // Makes content fill width
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
-      return centerLayout;
+      return scrollPane;
   }
 
 
