@@ -17,17 +17,17 @@ import java.io.IOException;
 public class MainApp extends Application {
     // Font configuration constants
     private static final double BASE_FONT_SIZE = 14;
-    
+
     @Override
     public void start(Stage stage) throws IOException {
         // Initialize fonts before creating any views
         // initializeFonts();
         FontLoader.initialize();
-        
+
         // Create and show your view
 //         DashboardView dashboardView = new DashboardView(stage);
 //         dashboardView.show();
-        
+
         // Alternative if you want to use WelcomeView first:
 //         WelcomeView welcomeView = new WelcomeView(stage);
 //         welcomeView.show();
