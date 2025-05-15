@@ -2,6 +2,7 @@ package com.greennexus.views.auth;
 
 import com.greennexus.styles.FontLoader;
 
+import com.greennexus.views.dashboard.DashboardView;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -62,6 +63,10 @@ public class Login extends Application {
             } else {
                 System.out.println("Please select a role");
             }
+
+            final DashboardView dashboardView = new DashboardView(stage);
+            dashboardView.show();
+            stage.setFullScreen(true);
         });
         loginButton.setStyle("-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 4;");
 
@@ -101,6 +106,8 @@ public class Login extends Application {
 
         stage.setTitle("GreenNexus Login");
         stage.setScene(scene);
+
         stage.show();
+        stage.setFullScreen(true);
     }
 }

@@ -3,6 +3,7 @@ package com.greennexus.views.dashboard.components;
 import com.greennexus.components.ButtonFactory;
 import com.greennexus.styles.FontLoader;
 
+import com.greennexus.views.report.ReportView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -14,14 +15,15 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class DashboardTopBar {
-    public static HBox build() {
+    public static HBox build(Stage stage) {
 
         final Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        final HBox topBar = new HBox(15, buiidLogoBox(), spacer, buildReportBtn(), buildScheduleBtn());
+        final HBox topBar = new HBox(15, buiidLogoBox(), spacer, buildReportBtn(stage), buildScheduleBtn());
         topBar.setPadding(new Insets(16));
         topBar.setAlignment(Pos.CENTER_LEFT);
         topBar.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -61,9 +63,19 @@ public class DashboardTopBar {
     }
 
     // Report Button
-    private static Button buildReportBtn(){
-        final Button reportBtn = ButtonFactory.create("Report Emergency", Color.WHITE, Color.web("#b91c1c"), () -> {
+    private static Button buildReportBtn(Stage stage){
+        Image image = new Image(DashboardTopBar.class.getResource("/images/triangle-alert.png").toExternalForm());
+        ImageView alertView = new ImageView(image);
 
+
+        alertView.setFitWidth(24);
+        alertView.setSmooth(true);
+        alertView.setPreserveRatio(true);
+        alertView.setCache(true);
+        final Button reportBtn = ButtonFactory.create( "Report Emergency", alertView, Color.WHITE, Color.web("#b91c1c"), () -> {
+            final ReportView reportView = new ReportView(stage);
+            reportView.show();
+            stage.setFullScreen(true);
         });
         reportBtn.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 14));
         reportBtn.setPadding( new Insets(8, 36, 8, 36));

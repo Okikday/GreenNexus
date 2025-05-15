@@ -1,5 +1,6 @@
 package com.greennexus.views.recyclingcompanies;
 
+import com.greennexus.components.BackToDashboard;
 import com.greennexus.views.dashboard.components.DashboardRecyclingCompanies;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -18,7 +19,7 @@ public class RecyclingCoordinationView {
         root.setStyle("-fx-background-color: #f9fafb;");
 
         // Left: available recycling companies
-        VBox companiesSection = DashboardRecyclingCompanies.build(false);
+        VBox companiesSection = new DashboardRecyclingCompanies(stage).build(false);
         companiesSection.setPrefWidth(600);
 
         // Right: materials request form
@@ -26,8 +27,12 @@ public class RecyclingCoordinationView {
         formSection.setPrefWidth(400);
 
         root.getChildren().addAll(companiesSection, formSection);
+        BorderPane borderPane = new BorderPane(root);
+        borderPane.setTop(BackToDashboard.build(stage));
+        borderPane.getStyleClass().add("root");
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(borderPane);
+
         stage.setScene(scene);
         stage.setTitle("Recycling Coordination");
         stage.show();

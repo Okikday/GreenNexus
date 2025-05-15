@@ -28,7 +28,7 @@ public class DashboardView {
 
     public void show() {
         BorderPane root = new BorderPane();
-        root.setTop(DashboardTopBar.build());
+        root.setTop(DashboardTopBar.build(stage));
         root.setCenter(buildCenterContent());
 
         final Scene scene = new Scene(root);
@@ -56,7 +56,7 @@ public class DashboardView {
                 DashboardOverviewSection.build(),
                 DashboardPickupManagement.build(),
                 DashboardRecentActivity.build(),
-                DashboardRecyclingCompanies.build(true),
+                new DashboardRecyclingCompanies(stage).build(true),
                 DashboardImpactSection.build()
         );
 

@@ -2,6 +2,7 @@ package com.greennexus.views;
 
 import com.greennexus.styles.DefaultFont;
 import com.greennexus.styles.FontLoader;
+import com.greennexus.views.auth.Login;
 import com.greennexus.views.dashboard.DashboardView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -79,8 +80,8 @@ public class WelcomeView {
             updateBtnBgColor(continueBtn, Color.GREEN);
         });
         continueBtn.setOnAction(e -> {
-            final DashboardView dashboardView = new DashboardView(stage);
-            dashboardView.show();
+            final Login login = new Login();
+            login.start(stage);
         });
 
 

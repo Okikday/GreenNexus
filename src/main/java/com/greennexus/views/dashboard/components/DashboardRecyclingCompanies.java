@@ -2,6 +2,7 @@ package com.greennexus.views.dashboard.components;
 
 import com.greennexus.components.ButtonFactory;
 import com.greennexus.styles.DefaultFont;
+import com.greennexus.views.recyclingcompanies.RecyclingCoordinationView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -11,9 +12,14 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
 public class DashboardRecyclingCompanies {
-    public static VBox build(boolean isHBox) {
+    final Stage stage;
+    public DashboardRecyclingCompanies(Stage stage){
+        this.stage = stage;
+    }
+    public VBox build(boolean isHBox) {
         VBox root = new VBox(20);
         root.setPadding(new Insets(12));
         root.setAlignment(Pos.TOP_LEFT);
@@ -22,7 +28,10 @@ public class DashboardRecyclingCompanies {
         title.setFont(Font.font(Font.getDefault().getName(), FontWeight.BOLD, 20));
 
 
-        Button viewAllBtn = ButtonFactory.create("View All Companies →", () -> {});
+        Button viewAllBtn = ButtonFactory.create("View All Companies →", () -> {
+            RecyclingCoordinationView.show(this.stage);
+            stage.setFullScreen(true);
+        });
         viewAllBtn.setFont(Font.font(Font.getDefault().getName(), FontWeight.NORMAL, 13));
         viewAllBtn.setTextFill(Color.web("#0f172a"));
         viewAllBtn.setStyle("-fx-background-color: transparent; -fx-border-color: #d1d5db; -fx-border-radius: 6;");

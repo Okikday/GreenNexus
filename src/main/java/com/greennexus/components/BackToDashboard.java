@@ -1,6 +1,7 @@
 package com.greennexus.components;
 
 import com.greennexus.styles.FontLoader;
+import com.greennexus.views.dashboard.DashboardView;
 import com.greennexus.views.dashboard.components.DashboardTopBar;
 
 import javafx.animation.KeyFrame;
@@ -27,15 +28,17 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class BackToDashboard {
-  public static HBox build() {
+
+  public static HBox build(Stage stage) {
 
         final Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        final HBox topBar = new HBox(15, buildbutton());
+        final HBox topBar = new HBox(15, buildbutton(stage));
         topBar.setPadding(new Insets(16));
         topBar.setAlignment(Pos.CENTER_LEFT);
         topBar.setPrefHeight(50);
@@ -45,7 +48,7 @@ public class BackToDashboard {
     /// --- BUTTONS SECTION ---
 
     // Logo Box
-    private static HBox buildbutton(){
+    private static HBox buildbutton(Stage stage){
         Image image = new Image(DashboardTopBar.class.getResource("/images/arrow-left.png").toExternalForm());
         ImageView logoView = new ImageView(image);
 
@@ -84,6 +87,11 @@ public class BackToDashboard {
                 new KeyValue(logoLabel.fillProperty(), 
                     originalColor)
             )).play();
+        });
+        logoBox.setOnMouseClicked(e ->{
+            final DashboardView dashboardView = new DashboardView(stage);
+            dashboardView.show();
+            stage.setFullScreen(true);
         });
         return logoBox;
     }

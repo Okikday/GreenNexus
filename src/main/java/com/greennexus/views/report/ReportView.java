@@ -34,7 +34,7 @@ public class ReportView {
     public void show() {
         BorderPane root = new BorderPane();
         root.setBackground(Background.EMPTY);
-        root.setTop(BackToDashboard.build());
+        root.setTop(BackToDashboard.build(stage));
         root.setCenter(buildCenterContent());
         root.getStyleClass().add("root");
 
